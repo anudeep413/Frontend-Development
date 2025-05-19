@@ -1,0 +1,86 @@
+/* Reset default styles */
+body {
+  background-color: #00ffff; /* Aqua background */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: flex-start; /* Align to the left */
+  padding: 20px;
+  height: 100vh;
+}
+
+/* Container for the music player */
+.player-container {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Title style */
+h1 {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+}
+
+/* Song info styling */
+.song-info {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Audio controls container */
+.audio-container {
+  margin: 15px 0;
+}
+
+/* Buttons styling with neon glow and animated shadow */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: transparent;
+  color: #0ff; /* Neon cyan text */
+  border: 2px solid #0ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  transform: scale(1.05);
+}
+
+/* Playlist styling */
+.playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #0ff;
+  border-radius: 8px;
+  background: #fff;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #0ff;
+  transition: background 0.2s;
+}
+
+li:hover {
+  background-color: #e0ffff;
+}
