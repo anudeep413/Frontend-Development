@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Moon Image Gallery</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .nav-btn {
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background-color 0.3s;
+  }
+
+  .nav-btn:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .thumbnail {
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+    
+    cursor: pointer;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .thumbnail:hover {
+    border-color: #007BFF;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<div class="gallery-container">
+  <img id="mainImage" src="" alt="Main Moon" class="main-image" />
+  
+  <div class="nav-buttons">
+    <button id="prevBtn" class="nav-btn">&lt;</button>
+    <button id="nextBtn" class="nav-btn">&gt;</button>
+  </div>
+</div>
+
+
+<div class="thumbnails" id="thumbnailsContainer"></div>
+
+<script>
+  
+  const images = [
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+    "https://images2.alphacoders.com/440/thumb-1920-440482.jpg", 
+    "https://th.bing.com/th/id/OIP.cMywPbutwpHzZXvH1XGI6AHaEo?w=2880&h=1800&rs=1&pid=ImgDetMain", 
+    "https://images.hdqwalls.com/download/lake-lights-ap-960x540.jpg", 
+    "https://photos.smugmug.com/Iceland/South-Coast/i-P4H2RDd/0/622d8381/L/South-Coast-460-L.jpg", 
+    "https://th.bing.com/th/id/OIP.kP2V12YT4efQT12XjSqE8gHaFT?w=880&h=631&rs=1&pid=ImgDetMain"  
+  ];
+
+  let currentIndex = 0;
+
+  const mainImage = document.getElementById("mainImage");
+  const thumbnailsContainer = document.getElementById("thumbnailsContainer");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  
+  function showImage(index) {
+    mainImage.src = images[index];
+    currentIndex = index;
+    highlightThumbnail(index);
+  }
+
+ 
+  function createThumbnails() {
+    images.forEach((src, index) => {
+      const thumb = document.createElement("img");
+      thumb.src = src;
+      thumb.className = "thumbnail";
+      thumb.dataset.index = index;
+      thumb.addEventListener("click", () => {
+        showImage(index);
+      });
+      thumbnailsContainer.appendChild(thumb);
+    });
+  }
+
+ 
+  function highlightThumbnail(index) {
+    document.querySelectorAll(".thumbnail").forEach((thumb, i) => {
+      thumb.style.borderColor = i === index ? "#007BFF" : "transparent";
+    });
+  }
+
+  
+  prevBtn.addEventListener("click", () => {
+    const newIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(newIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const newIndex = (currentIndex + 1) % images.length;
+    showImage(newIndex);
+  });
+
+  
+  createThumbnails();
+  showImage(0);
+</script>
+</body>
+</html>
