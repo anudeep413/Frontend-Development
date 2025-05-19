@@ -1,5 +1,5 @@
 # Frontend-Development
-  Frontend development is about creating the visual and interactive parts of a website or app that users see and interact with using HTML, CSS, and JavaScript. It focuses on designing user interfaces and ensuring a smooth user experience.
+  Frontend development is about creating the visual and interactive parts of a website or app that users see and interact with using HTML, CSS, and JavaScript. It focuses on designing user interfaces and ensuring a smooth user experience. I gain Hands-on experience to building a modern web applications. And i learn debugging and optimization techniques while enhancing in this project tasks. 
 1. Image Gallery : 
   Create an interactive webpage to display a collection of images. Learn to arrange images beautifully, add features like zoom or lightbox, and make the gallery responsive for different devices.
 
